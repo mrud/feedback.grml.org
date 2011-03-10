@@ -13,7 +13,8 @@ class FeedbackFeed(Feed):
         begin = 'A'
         if not item.is_happy():
             begin = 'An'
-        return "{0} {1} user wrote about Grml {2.version}".format(begin, item.get_kind_display(), item)
+        return "%s %s user wrote about Grml %s" % (begin, item.get_kind_display(),
+                item.version)
 
     def item_description(self, item):
         return item.text
