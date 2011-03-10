@@ -1,0 +1,31 @@
+{% extends "feedback/layout.html" %}
+
+{% block maintitle%}{{ kind }} Users Say:
+{% endblock %}
+{% block body %}
+<ul class=feedback-list>
+{% for feedback in object_list %}
+    <li>
+      <p class=text><q>{{ feedback.text }}</q></p>
+      <p class=meta>—
+        written on {{ feedback.pub_date }}
+        {% if feedback.version %}about Grml-{{ feedback.version }}{% endif %}
+        <a href={% url show_message feedback.id %}>#</a>
+        </p>
+    </li>
+  {% endfor %}
+  </ul>
+
+{% if is_paginated %}
+<div class=pagination>
+{% for page in paginator.page_range %}
+  {% if page == page_obj.number %}
+    {{ page }}
+  {% else %}
+  <a href="{% url show_list kind  page %}">{{ page }}</a>
+  {% endif %}
+{% endfor %}
+</div>
+{% endif %}
+
+{% endblock %}

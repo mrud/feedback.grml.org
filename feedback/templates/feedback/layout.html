@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>Feedback</title>
+<link rel="stylesheet" href="{{ MEDIA_URL }}style.css" type="text/css" media="all">
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+<script type="text/javascript" src="{{ MEDIA_URL }}script.js"></script>
+<link rel="alternate" type="application/rss+xml" href="{% url feedback_rss %}" />
+</head>
+<body>
+<div id="header">
+    {% load nav_tags %}
+    {% url feedback_index as home %}
+    {% url show_list "happy" as happy_url %}
+    {% url show_list "unhappy" as unhappy_url %}
+    <h1><a href="{% url feedback_index %}">Grml Feedback</a></h1></div>
+    <ul class=nav>
+        <li class="{% active request "feedback_index" %}"><a href="{% url feedback_index %}">Give Feedback</a>
+        <li class="{% active request happy_url %}"><a href="{{ happy_url }}">Whats good</a>
+        <li class="{% active request unhappy_url%}"><a href="{{ unhappy_url }}">Whats not so good</a>
+    </ul>
+
+	<div class="pointy" /></div>
+	</div>
+</div>
+<div id="container">
+	<div class="maintitle">
+        {% block maintitle %}{% endblock %}
+	</div>
+	<div class="body">
+        {% block body %}{% endblock %}
+    </div>
+    </div>
+    <div class="footer">
+            <p>
+      &copy; Copyright 2011 by <a href="http://spamt.net/">Ulrich Dangel</a>
+      , inspired by <a href="http://feedback.flask.pocoo.org/">feedback.flask</a><br>
+      Get the <a href={% url feedback_rss %}>rss feed</a>
+            </p>
+    </div>
+</body>

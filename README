@@ -1,0 +1,7 @@
+This project is inspired and partially based
+on https://github.com/mitsuhiko/flask-feedback
+
+Most part of the css are copied and adapted from
+the flask feedback application.
+
+This project requires at least Django 1.2

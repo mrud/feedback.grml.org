@@ -1,0 +1,28 @@
+{% extends "feedback/layout.html" %}
+
+{% block maintitle %}We want feedback {% endblock %}
+{% block body %}
+<p>
+To improve <a href="http://grml.org">Grml</a> we need your feedback. If you have something to
+say about Grml we would like to hear something from you.
+</p>
+<form method="post" action="" class="feedback">
+{% csrf_token %}
+<ul>
+<li> Grml makes me  <span class=selectors>
+          <span class=kind-selector><a href=# class=happy>happy ☺</a></span> /
+          <span class=kind-selector><a href=# class=unhappy>unhappy ☹</a></span>
+           </span> because …
+</li>
+<li class="hide step1">
+        <p class=text><textarea name=feedback cols=60 rows=3 maxlength=255></textarea>
+</li>
+<li class="hide step2">
+        <p class=version>
+        BTW. I am using Grml Version <input type=text name=version>
+        <input class=submit type=submit value="Share this">
+        </p>
+</li>
+<input type=hidden name=kind>
+</form>
+{% endblock %}

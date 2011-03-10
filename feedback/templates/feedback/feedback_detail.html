@@ -1,0 +1,12 @@
+{% extends "feedback/layout.html" %}
+
+{% block maintitle%}{% if  object.get_kind_display == "happy" %} A {% else %} An  {% endif %} {{ object.get_kind_display }} user said:
+{% endblock %}
+{% block body %}
+  <div class=message>
+    <h2>“{{ object.text }}”</h2>
+    <p class=meta>
+      written on {{ object.pub_date }}
+      {% if object.version %}about Grml {{ object.version }}{% endif %}
+  </div>
+{% endblock %}
