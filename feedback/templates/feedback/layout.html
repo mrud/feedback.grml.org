@@ -15,7 +15,9 @@
     {% url feedback_index as home %}
     {% url show_list "happy" as happy_url %}
     {% url show_list "unhappy" as unhappy_url %}
+    {% block heading %}
     <h1><a href="{% url feedback_index %}">Grml Feedback</a></h1></div>
+    {% endblock %}
     <ul class=nav>
         <li class="{% active request "feedback_index" %}"><a href="{% url feedback_index %}">Give Feedback</a>
         <li class="{% active request happy_url %}"><a href="{{ happy_url }}">Whats good</a>
