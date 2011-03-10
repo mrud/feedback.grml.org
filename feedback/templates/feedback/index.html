@@ -9,10 +9,13 @@ say about Grml we would like to hear something from you.
 <form method="post" action="" class="feedback">
 {% csrf_token %}
 <ul>
-<li> Grml makes me  <span class=selectors>
-          <span class=kind-selector><a href=# class=happy>happy ☺</a></span> /
-          <span class=kind-selector><a href=# class=unhappy>unhappy ☹</a></span>
-           </span> because …
+<li> Grml makes me  <span class="selectors"> </span>
+          <select name="kind">
+              <option value=h>happy</option>
+              <option value=u>unhappy</option>
+          </select>
+
+          </span> because …
 </li>
 <li class="hide step1">
         <p class=text><textarea name=feedback cols=60 rows=3 maxlength=255></textarea>
@@ -23,6 +26,5 @@ say about Grml we would like to hear something from you.
         <input class=submit type=submit value="Share this">
         </p>
 </li>
-<input type=hidden name=kind>
 </form>
 {% endblock %}
