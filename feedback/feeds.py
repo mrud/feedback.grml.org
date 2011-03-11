@@ -19,3 +19,7 @@ class FeedbackFeed(Feed):
     def item_description(self, item):
         return item.text
 
+    def item_pubdate(self, item):
+        return item.pub_date
+
+
