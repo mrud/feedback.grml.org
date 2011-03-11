@@ -2,6 +2,7 @@ function prettify_feedback(feedback) {
   var errorLog = null;
   var feedbackInput = null;
   var errors = 0;
+
   function showFormError(error) {
     if (errorLog === null) {
       errorLog = $('<p class=error></p>').insertAfter('.feedback p.version');
