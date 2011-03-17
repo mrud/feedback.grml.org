@@ -26,5 +26,5 @@ def show_list(request, filter_by, page=1):
             break
     else:
             raise Http404
-    feedback = Feedback.objects.filter(kind=kind_short)
+    feedback = Feedback.objects.filter(kind=kind_short).order_by('-pub_date')
     return object_list(request, queryset=feedback, page=page, allow_empty=True, extra_context={'kind': filter_by})

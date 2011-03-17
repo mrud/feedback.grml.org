@@ -10,6 +10,7 @@ info_dict = {
 
 urlpatterns = patterns('feedback.views',
     url(r'^$', 'index', name='feedback_index'),
+    url(r'^submit-feedback$', 'index', name='submit_feedback'),
     url(r'^(?P<filter_by>\w+)/(?P<page>\d+/)?$', 'show_list', name='show_list'),
 )
 urlpatterns += patterns('',

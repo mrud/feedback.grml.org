@@ -13,6 +13,11 @@
         <a href={% url show_message feedback.id %}>#</a>
         </p>
     </li>
+   {% empty %}
+   <li>
+     <h3>No {{ kind }} users.</h3>
+
+   </li>
   {% endfor %}
   </ul>
 
